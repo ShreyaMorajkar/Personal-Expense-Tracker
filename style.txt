@@ -1,0 +1,497 @@
+/* Premium Design System for Personal Expense Tracker */
+
+:root {
+    --bg-color: hsl(222, 47%, 8%);
+    --card-bg: hsl(222, 47%, 13%);
+    --card-border: hsl(222, 47%, 20%);
+    --text-primary: hsl(0, 0%, 100%);
+    --text-secondary: hsl(215, 20%, 65%);
+    --primary-accent: hsl(263, 70%, 50%);
+    --accent-glow: hsla(263, 70%, 50%, 0.15);
+    
+    /* Category Colors */
+    --food-color: hsl(142, 70%, 45%);
+    --transport-color: hsl(199, 89%, 48%);
+    --shopping-color: hsl(340, 82%, 52%);
+    --entertainment-color: hsl(271, 91%, 65%);
+    
+    /* Box Model Defaults */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* 1. Header Section Styling */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--card-bg), hsl(222, 47%, 10%));
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-accent), var(--entertainment-color));
+    border-radius: var(--radius-sm);
+    box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.logo-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: hsla(222, 47%, 18%, 0.5);
+    padding: 8px 16px 8px 8px;
+    border-radius: 40px;
+    border: 1px solid var(--card-border);
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-accent);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.user-role {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* 2. Summary Cards Section Styling */
+.summary-cards {
+    display: flex;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.card {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-accent);
+}
+
+.card-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-balance {
+    border-color: hsla(263, 70%, 50%, 0.4);
+}
+
+.balance-icon {
+    background: hsla(263, 70%, 50%, 0.1);
+    border: 1px solid var(--primary-accent);
+}
+
+.balance-icon::before {
+    content: "💰";
+    font-size: 24px;
+}
+
+.spent-icon {
+    background: hsla(142, 70%, 45%, 0.1);
+    border: 1px solid var(--food-color);
+}
+
+.spent-icon::before {
+    content: "₹";
+    color: var(--food-color);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.category-icon {
+    background: hsla(340, 82%, 52%, 0.1);
+    border: 1px solid var(--shopping-color);
+}
+
+.category-icon::before {
+    content: "🛍️";
+    font-size: 24px;
+}
+
+.month-icon {
+    background: hsla(199, 89%, 48%, 0.1);
+    border: 1px solid var(--transport-color);
+}
+
+.month-icon::before {
+    content: "📅";
+    font-size: 24px;
+}
+
+.card-details h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.card-sub-value {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 4px;
+}
+
+/* Main Content Grid via Flexbox columns */
+.dashboard-content {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Left Panel containing Categories & Add Form */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex: 1;
+}
+
+.categories-section, .transactions-section, .add-expense-section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.transactions-section {
+    flex: 1.2;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-accent);
+    border-radius: 2px;
+}
+
+/* 3. Expense Categories Section Styling */
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: hsla(222, 47%, 10%, 0.6);
+    border: 1px solid var(--card-border);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.category-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.bullet-food { background-color: var(--food-color); }
+.bullet-transport { background-color: var(--transport-color); }
+.bullet-shopping { background-color: var(--shopping-color); }
+.bullet-entertainment { background-color: var(--entertainment-color); }
+
+.category-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.category-amount {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Interactive Form Styling */
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group.flex-1 {
+    flex: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.expense-form label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.expense-form input, .expense-form select {
+    background: hsla(222, 47%, 9%, 0.7);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.expense-form input::placeholder {
+    color: hsl(215, 10%, 45%);
+}
+
+.expense-form input:focus, .expense-form select:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary-accent), var(--entertainment-color));
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px;
+    text-align: center;
+    margin-top: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* 4. Recent Transactions Section Styling */
+.transaction-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.transaction-header-row .section-title {
+    margin-bottom: 0;
+}
+
+.btn-clear {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-clear:hover {
+    color: hsl(354, 70%, 54%);
+    border-color: hsl(354, 70%, 54%);
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.transaction-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: hsla(222, 47%, 10%, 0.6);
+    border: 1px solid var(--card-border);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.transaction-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.transaction-date {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.transaction-amount {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.transaction-amount.negative {
+    color: hsl(354, 70%, 54%);
+}
+
+.transaction-amount.positive {
+    color: var(--food-color);
+}
+
+.transaction-amount.savings-type {
+    color: var(--transport-color);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--spacing-lg) 0;
+    font-size: 14px;
+}
+
+/* Responsiveness via flex wraps */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .user-profile {
+        align-self: flex-end;
+    }
+    
+    .summary-cards {
+        flex-direction: column;
+    }
+    
+    .dashboard-content {
+        flex-direction: column;
+    }
+}
