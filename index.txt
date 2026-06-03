@@ -30,40 +30,57 @@
             </div>
         </header>
 
-        <!-- 2. Summary Cards Section (Perfectly aligned with Unlox PRD evaluation) -->
+        <!-- 2. Summary Cards Section -->
         <section class="summary-cards" id="summary-section">
-            <!-- Card 1: Total Spent -->
+            <!-- Card 1: Total Spent with inline CSS progress tracking -->
             <div class="card card-spent">
-                <div class="card-icon spent-icon"></div>
                 <div class="card-details">
-                    <h3>Total Spent</h3>
-                    <p class="card-value" id="total-spent">₹8,598.00</p>
-                    <span class="card-sub-value" id="sub-balance">Balance: ₹25,000.00</span>
+                    <div class="card-header-row">
+                        <h3>Total Spent</h3>
+                        <span class="card-icon-emoji">💸</span>
+                    </div>
+                    <p class="card-value">₹12,196.00</p>
+                    <!-- Pure CSS Budget Goal Progress Bar -->
+                    <div class="budget-progress-container">
+                        <div class="budget-progress-bar"></div>
+                    </div>
+                    <span class="card-sub-value">61% of ₹20,000 monthly limit</span>
                 </div>
             </div>
             <!-- Card 2: Highest Category -->
             <div class="card card-category">
-                <div class="card-icon category-icon"></div>
                 <div class="card-details">
-                    <h3>Highest Category</h3>
-                    <p class="card-value" id="highest-category">Shopping</p>
-                    <span class="card-sub-value" id="highest-spent-value">₹3,999.00 spent</span>
+                    <div class="card-header-row">
+                        <h3>Highest Category</h3>
+                        <span class="card-icon-emoji">🍲</span>
+                    </div>
+                    <p class="card-value">Food</p>
+                    <span class="card-sub-value">₹5,450.00 spent this month</span>
                 </div>
             </div>
             <!-- Card 3: Current Month -->
             <div class="card card-month">
-                <div class="card-icon month-icon"></div>
                 <div class="card-details">
-                    <h3>Current Month</h3>
+                    <div class="card-header-row">
+                        <h3>Current Month</h3>
+                        <span class="card-icon-emoji">📅</span>
+                    </div>
                     <p class="card-value">June 2026</p>
-                    <span class="card-sub-value" id="sub-savings">Savings: ₹15,000.00</span>
+                    <span class="card-sub-value">Savings Goal: ₹17,000.00</span>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content Area split into Categories/Add-Form & Transactions -->
+        <!-- Content Area: Uses hidden radio buttons for pure CSS transaction filtering -->
         <main class="dashboard-content">
-            <!-- Left Panel: Categories & New Form -->
+            <!-- Hidden radio selectors for filtering transactions list via CSS -->
+            <input type="radio" id="filter-all" name="tx-filter" checked>
+            <input type="radio" id="filter-food" name="tx-filter">
+            <input type="radio" id="filter-transport" name="tx-filter">
+            <input type="radio" id="filter-shopping" name="tx-filter">
+            <input type="radio" id="filter-entertainment" name="tx-filter">
+
+            <!-- Left Panel: Categories, Insights & Add Form -->
             <div class="left-panel">
                 <!-- 3. Expense Categories Section -->
                 <section class="categories-section" id="categories-container">
@@ -74,290 +91,165 @@
                                 <span class="category-bullet bullet-food"></span>
                                 <span class="category-name">Food</span>
                             </div>
-                            <span class="category-amount" id="cat-food">₹2,450.00</span>
+                            <span class="category-amount">₹5,450.00</span>
                         </div>
                         <div class="category-item">
                             <div class="category-info">
                                 <span class="category-bullet bullet-transport"></span>
                                 <span class="category-name">Transport</span>
                             </div>
-                            <span class="category-amount" id="cat-transport">₹1,500.00</span>
+                            <span class="category-amount">₹2,098.00</span>
                         </div>
                         <div class="category-item">
                             <div class="category-info">
                                 <span class="category-bullet bullet-shopping"></span>
                                 <span class="category-name">Shopping</span>
                             </div>
-                            <span class="category-amount" id="cat-shopping">₹3,999.00</span>
+                            <span class="category-amount">₹3,999.00</span>
                         </div>
                         <div class="category-item">
                             <div class="category-info">
                                 <span class="category-bullet bullet-entertainment"></span>
                                 <span class="category-name">Entertainment</span>
                             </div>
-                            <span class="category-amount" id="cat-entertainment">₹649.00</span>
+                            <span class="category-amount">₹649.00</span>
                         </div>
                     </div>
                 </section>
 
-                <!-- Interactive Quick Add Form Section -->
+                <!-- Smart Insights Component (Pure HTML/CSS static feedback) -->
+                <section class="insights-section">
+                    <h2 class="section-title">Smart Insights</h2>
+                    <div class="insights-list">
+                        <div class="insight-card">
+                            <span class="insight-emoji">💡</span>
+                            <p class="insight-text">Food accounts for <strong>45%</strong> of your monthly spending. Consider cooking at home to save.</p>
+                        </div>
+                        <div class="insight-card">
+                            <span class="insight-emoji">⚡</span>
+                            <p class="insight-text">You have used <strong>61%</strong> of your budget. You are on track to save ₹7,804.00.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add Transaction Form Mockup -->
                 <section class="add-expense-section">
                     <h2 class="section-title">Add Transaction</h2>
-                    <form class="expense-form" id="transaction-form">
+                    <form class="expense-form" onsubmit="return false;">
                         <div class="form-group">
                             <label for="expense-title">Title / Description</label>
-                            <input type="text" id="expense-title" placeholder="e.g., Starbucks Coffee" required>
+                            <input type="text" id="expense-title" placeholder="e.g., Zudio Shopping" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-1">
                                 <label for="expense-amount">Amount (₹)</label>
-                                <input type="number" id="expense-amount" placeholder="0.00" min="1" step="any" required>
+                                <input type="number" id="expense-amount" placeholder="0.00" required>
                             </div>
                             <div class="form-group flex-1">
-                                <label for="expense-type">Type</label>
-                                <select id="expense-type" required>
-                                    <option value="expense">Expense (Spend)</option>
-                                    <option value="income">Income (Earn)</option>
-                                    <option value="savings">Save (Transfer)</option>
+                                <label for="expense-category">Category</label>
+                                <select id="expense-category" required>
+                                    <option value="Food">Food</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Entertainment">Entertainment</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group" id="category-group">
-                            <label for="expense-category">Category</label>
-                            <select id="expense-category" required>
-                                <option value="Food">Food</option>
-                                <option value="Transport">Transport</option>
-                                <option value="Shopping">Shopping</option>
-                                <option value="Entertainment">Entertainment</option>
-                            </select>
                         </div>
                         <button type="submit" class="btn-submit">Add Transaction</button>
                     </form>
                 </section>
             </div>
 
-            <!-- Right Panel: 4. Recent Transactions Section -->
-            <section class="transactions-section" id="transactions-container">
-                <div class="transaction-header-row">
+            <!-- Right Panel: Chart and Filterable Transactions -->
+            <div class="right-panel">
+                <!-- Pure CSS Visual Spending Chart -->
+                <section class="chart-section">
+                    <h2 class="section-title">Weekly Trend</h2>
+                    <div class="css-chart-container">
+                        <div class="chart-bar-wrapper">
+                            <span class="chart-value-label">₹2,450</span>
+                            <div class="chart-bar" style="height: 55%; background: var(--food-color);"></div>
+                            <span class="chart-day-label">W1</span>
+                        </div>
+                        <div class="chart-bar-wrapper">
+                            <span class="chart-value-label">₹1,500</span>
+                            <div class="chart-bar" style="height: 38%; background: var(--transport-color);"></div>
+                            <span class="chart-day-label">W2</span>
+                        </div>
+                        <div class="chart-bar-wrapper">
+                            <span class="chart-value-label">₹4,247</span>
+                            <div class="chart-bar" style="height: 90%; background: var(--shopping-color);"></div>
+                            <span class="chart-day-label">W3</span>
+                        </div>
+                        <div class="chart-bar-wrapper">
+                            <span class="chart-value-label">₹3,999</span>
+                            <div class="chart-bar" style="height: 85%; background: var(--shopping-color);"></div>
+                            <span class="chart-day-label">W4</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Recent Transactions Section -->
+                <section class="transactions-section" id="transactions-container">
                     <h2 class="section-title">Recent Transactions</h2>
-                    <button class="btn-clear" id="btn-reset">Reset Data</button>
-                </div>
-                <div class="transactions-list" id="transactions-list">
-                    <!-- Dynamic transactions insert here -->
-                </div>
-            </section>
+
+                    <!-- Pure CSS Quick Filters Navigation -->
+                    <div class="filter-controls">
+                        <label for="filter-all" class="filter-btn btn-all">All</label>
+                        <label for="filter-food" class="filter-btn btn-food">Food</label>
+                        <label for="filter-transport" class="filter-btn btn-transport">Transport</label>
+                        <label for="filter-shopping" class="filter-btn btn-shopping">Shopping</label>
+                        <label for="filter-entertainment" class="filter-btn btn-entertainment">Entertainment</label>
+                    </div>
+
+                    <!-- Filterable Transaction Cards list -->
+                    <div class="transactions-list">
+                        <div class="transaction-card cat-entertainment">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Netflix Premium Plan</h4>
+                                <span class="transaction-date">June 1, 2026 • Entertainment</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹649.00</span>
+                        </div>
+                        <div class="transaction-card cat-food">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Weekly Groceries</h4>
+                                <span class="transaction-date">May 30, 2026 • Food</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹2,450.00</span>
+                        </div>
+                        <div class="transaction-card cat-transport">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Shell Petrol Pump</h4>
+                                <span class="transaction-date">May 28, 2026 • Transport</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹1,500.00</span>
+                        </div>
+                        <div class="transaction-card cat-shopping">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Zara Clothing Store</h4>
+                                <span class="transaction-date">May 27, 2026 • Shopping</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹3,999.00</span>
+                        </div>
+                        <div class="transaction-card cat-food">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Zudio Shopping</h4>
+                                <span class="transaction-date">May 25, 2026 • Food</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹3,000.00</span>
+                        </div>
+                        <div class="transaction-card cat-transport">
+                            <div class="transaction-details">
+                                <h4 class="transaction-title">Auto Rickshaw ride</h4>
+                                <span class="transaction-date">May 24, 2026 • Transport</span>
+                            </div>
+                            <span class="transaction-amount negative">-₹598.00</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
-
-    <!-- Vanilla Javascript Logic for complete dynamic functional state -->
-    <script>
-        // Initial Default Transactions (Realistic values in Indian Rupees)
-        const defaultTransactions = [
-            { id: 1, title: 'Netflix Premium Plan', amount: 649, type: 'expense', category: 'Entertainment', date: 'June 1, 2026' },
-            { id: 2, title: 'Weekly Groceries', amount: 2450, type: 'expense', category: 'Food', date: 'May 30, 2026' },
-            { id: 3, title: 'Shell Petrol Pump', amount: 1500, type: 'expense', category: 'Transport', date: 'May 28, 2026' },
-            { id: 4, title: 'Zara Clothing Store', amount: 3999, type: 'expense', category: 'Shopping', date: 'May 27, 2026' }
-        ];
-
-        // Initial default balances
-        const defaultState = {
-            balance: 25000,
-            savings: 15000,
-            transactions: defaultTransactions
-        };
-
-        // Load data from LocalStorage or fallback to defaults
-        let state = JSON.parse(localStorage.getItem('expense_tracker_state'));
-        if (!state) {
-            state = JSON.parse(JSON.stringify(defaultState));
-            saveToLocalStorage();
-        }
-
-        // DOM elements
-        const balanceSubEl = document.getElementById('sub-balance');
-        const spentEl = document.getElementById('total-spent');
-        const savingsSubEl = document.getElementById('sub-savings');
-        const highestEl = document.getElementById('highest-category');
-        const highestSpentValEl = document.getElementById('highest-spent-value');
-        const transactionsListEl = document.getElementById('transactions-list');
-        const transactionForm = document.getElementById('transaction-form');
-        const resetBtn = document.getElementById('btn-reset');
-        const typeSelect = document.getElementById('expense-type');
-        const categoryGroup = document.getElementById('category-group');
-        const categorySelect = document.getElementById('expense-category');
-
-        // Category breakdown display items
-        const catFoodEl = document.getElementById('cat-food');
-        const catTransportEl = document.getElementById('cat-transport');
-        const catShoppingEl = document.getElementById('cat-shopping');
-        const catEntertainmentEl = document.getElementById('cat-entertainment');
-
-        // Toggle Category select group visibility based on transaction type
-        typeSelect.addEventListener('change', () => {
-            if (typeSelect.value === 'expense') {
-                categoryGroup.style.display = 'flex';
-                categorySelect.setAttribute('required', 'true');
-            } else {
-                categoryGroup.style.display = 'none';
-                categorySelect.removeAttribute('required');
-            }
-        });
-
-        // Save state helper
-        function saveToLocalStorage() {
-            localStorage.setItem('expense_tracker_state', JSON.stringify(state));
-        }
-
-        // Format currency helper (Indian Rupee style)
-        function formatRupee(amount) {
-            return '₹' + amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-
-        // Update Dashboard GUI
-        function updateDashboard() {
-            let totalSpent = 0;
-            let currentBalance = state.balance;
-            let totalSavings = state.savings;
-
-            // Category sums
-            const categorySums = {
-                Food: 0,
-                Transport: 0,
-                Shopping: 0,
-                Entertainment: 0
-            };
-
-            // Loop through transactions to calculate amounts
-            state.transactions.forEach(t => {
-                const amt = parseFloat(t.amount);
-                if (t.type === 'expense') {
-                    totalSpent += amt;
-                    currentBalance -= amt;
-                    if (categorySums[t.category] !== undefined) {
-                        categorySums[t.category] += amt;
-                    }
-                } else if (t.type === 'income') {
-                    currentBalance += amt;
-                } else if (t.type === 'savings') {
-                    currentBalance -= amt;
-                    totalSavings += amt;
-                }
-            });
-
-            // Update card metrics
-            spentEl.textContent = formatRupee(totalSpent);
-            balanceSubEl.textContent = `Balance: ${formatRupee(currentBalance)}`;
-            savingsSubEl.textContent = `Savings: ${formatRupee(totalSavings)}`;
-
-            // Update Category List Elements
-            catFoodEl.textContent = formatRupee(categorySums.Food);
-            catTransportEl.textContent = formatRupee(categorySums.Transport);
-            catShoppingEl.textContent = formatRupee(categorySums.Shopping);
-            catEntertainmentEl.textContent = formatRupee(categorySums.Entertainment);
-
-            // Determine Highest Category
-            let maxCat = 'None';
-            let maxVal = -1;
-            for (const [cat, val] of Object.entries(categorySums)) {
-                if (val > maxVal) {
-                    maxVal = val;
-                    maxCat = cat;
-                }
-            }
-            highestEl.textContent = maxVal > 0 ? maxCat : 'No Expenses';
-            highestSpentValEl.textContent = maxVal > 0 ? `${formatRupee(maxVal)} spent` : '₹0.00 spent';
-
-            // Populate Transactions List
-            transactionsListEl.innerHTML = '';
-            
-            if (state.transactions.length === 0) {
-                transactionsListEl.innerHTML = `<div class="empty-state">No transactions added yet.</div>`;
-                return;
-            }
-
-            // Render in reverse chronological order (newest first)
-            [...state.transactions].reverse().forEach(t => {
-                const card = document.createElement('div');
-                card.className = 'transaction-card';
-                
-                // Color coding tags based on transaction type
-                let amtText = '';
-                let amtClass = '';
-                let typeTag = '';
-                
-                if (t.type === 'expense') {
-                    amtText = `-${formatRupee(t.amount)}`;
-                    amtClass = 'negative';
-                    typeTag = t.category;
-                } else if (t.type === 'income') {
-                    amtText = `+${formatRupee(t.amount)}`;
-                    amtClass = 'positive';
-                    typeTag = 'Income';
-                } else {
-                    amtText = `🏦 ${formatRupee(t.amount)}`;
-                    amtClass = 'savings-type';
-                    typeTag = 'Savings';
-                }
-
-                card.innerHTML = `
-                    <div class="transaction-details">
-                        <h4 class="transaction-title">${t.title}</h4>
-                        <span class="transaction-date">${t.date} • ${typeTag}</span>
-                    </div>
-                    <span class="transaction-amount ${amtClass}">${amtText}</span>
-                `;
-                transactionsListEl.appendChild(card);
-            });
-        }
-
-        // Form Submit Handler
-        transactionForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const title = document.getElementById('expense-title').value.trim();
-            const amount = parseFloat(document.getElementById('expense-amount').value);
-            const type = document.getElementById('expense-type').value;
-            
-            // Only capture category if transaction is an expense
-            const category = type === 'expense' ? document.getElementById('expense-category').value : 'N/A';
-
-            // Generate clean date string
-            const options = { month: 'short', day: 'numeric', year: 'numeric' };
-            const today = new Date().toLocaleDateString('en-US', options);
-
-            const newTx = {
-                id: Date.now(),
-                title,
-                amount,
-                type,
-                category,
-                date: today
-            };
-
-            state.transactions.push(newTx);
-            saveToLocalStorage();
-            updateDashboard();
-
-            // Clear inputs and reset category dropdown display if changed
-            transactionForm.reset();
-            categoryGroup.style.display = 'flex';
-            categorySelect.setAttribute('required', 'true');
-        });
-
-        // Reset Data handler
-        resetBtn.addEventListener('click', () => {
-            if (confirm('Are you sure you want to reset all data back to defaults?')) {
-                state = JSON.parse(JSON.stringify(defaultState));
-                saveToLocalStorage();
-                updateDashboard();
-                transactionForm.reset();
-                categoryGroup.style.display = 'flex';
-                categorySelect.setAttribute('required', 'true');
-            }
-        });
-
-        // Initialize display
-        updateDashboard();
-    </script>
 </body>
 </html>
