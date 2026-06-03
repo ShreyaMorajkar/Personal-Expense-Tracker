@@ -160,31 +160,41 @@
                 </section>
             </div>
 
-            <!-- Right Panel: Chart and Filterable Transactions -->
+            <!-- Right Panel: Donut Chart and Filterable Transactions -->
             <div class="right-panel">
-                <!-- Pure CSS Visual Spending Chart -->
+                <!-- Pure CSS Visual Donut Chart -->
                 <section class="chart-section">
-                    <h2 class="section-title">Weekly Trend</h2>
-                    <div class="css-chart-container">
-                        <div class="chart-bar-wrapper">
-                            <span class="chart-value-label">₹2,450</span>
-                            <div class="chart-bar" style="height: 55%; background: var(--food-color);"></div>
-                            <span class="chart-day-label">W1</span>
+                    <h2 class="section-title">Category Breakdown</h2>
+                    <div class="css-donut-chart-container">
+                        <!-- Conic Gradient Donut -->
+                        <div class="donut-chart">
+                            <div class="donut-center-text">
+                                <span class="donut-value">₹12.2k</span>
+                                <span class="donut-label">Total spent</span>
+                            </div>
                         </div>
-                        <div class="chart-bar-wrapper">
-                            <span class="chart-value-label">₹1,500</span>
-                            <div class="chart-bar" style="height: 38%; background: var(--transport-color);"></div>
-                            <span class="chart-day-label">W2</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <span class="chart-value-label">₹4,247</span>
-                            <div class="chart-bar" style="height: 90%; background: var(--shopping-color);"></div>
-                            <span class="chart-day-label">W3</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <span class="chart-value-label">₹3,999</span>
-                            <div class="chart-bar" style="height: 85%; background: var(--shopping-color);"></div>
-                            <span class="chart-day-label">W4</span>
+                        <!-- Donut Legend Grid -->
+                        <div class="donut-legend">
+                            <div class="legend-item">
+                                <span class="legend-color-dot food"></span>
+                                <span class="legend-cat-name">Food</span>
+                                <span class="legend-percentage">45%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color-dot transport"></span>
+                                <span class="legend-cat-name">Transport</span>
+                                <span class="legend-percentage">17%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color-dot shopping"></span>
+                                <span class="legend-cat-name">Shopping</span>
+                                <span class="legend-percentage">33%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color-dot entertainment"></span>
+                                <span class="legend-cat-name">Entertainment</span>
+                                <span class="legend-percentage">5%</span>
+                            </div>
                         </div>
                     </div>
                 </section>
