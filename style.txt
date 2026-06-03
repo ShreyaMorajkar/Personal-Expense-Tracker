@@ -465,7 +465,6 @@ input[name="tx-filter"], input[name="transaction-type"] {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    /* Conic Gradient representing category percentages: 45% Food, 17% Transport, 33% Shopping, 5% Entertainment */
     background: conic-gradient(
         var(--food-color) 0% 45%,
         var(--transport-color) 45% 62%,
@@ -483,7 +482,6 @@ input[name="tx-filter"], input[name="transaction-type"] {
     transform: scale(1.03);
 }
 
-/* Cutout layer to turn the Pie into a Donut chart */
 .donut-chart::after {
     content: '';
     position: absolute;
