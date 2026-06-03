@@ -214,8 +214,8 @@ body {
     position: relative;
 }
 
-/* Hide Radio Selectors used for filtering */
-input[name="tx-filter"] {
+/* Hide Radio Selectors used for filtering and form toggle */
+input[name="tx-filter"], input[name="transaction-type"] {
     display: none;
 }
 
@@ -390,6 +390,47 @@ input[name="tx-filter"] {
     box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
+/* Premium Segmented Controls in CSS */
+.segmented-control {
+    display: flex;
+    background: hsla(222, 47%, 9%, 0.7);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 3px;
+    gap: 2px;
+}
+
+.type-label {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.type-label:hover {
+    color: var(--text-primary);
+}
+
+/* Connect Radio states to Segment labels styling */
+#type-expense:checked ~ .form-row .label-expense,
+#type-income:checked ~ .form-row .label-income,
+#type-savings:checked ~ .form-row .label-savings {
+    background: var(--primary-accent);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+/* Toggle category container display based on type checked */
+#type-income:checked ~ #form-category-group,
+#type-savings:checked ~ #form-category-group {
+    display: none;
+}
+
 .btn-submit {
     background: linear-gradient(135deg, var(--primary-accent), var(--entertainment-color));
     border: none;
@@ -424,7 +465,6 @@ input[name="tx-filter"] {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    /* Conic Gradient representing category percentages: 45% Food, 17% Transport, 33% Shopping, 5% Entertainment */
     background: conic-gradient(
         var(--food-color) 0% 45%,
         var(--transport-color) 45% 62%,
@@ -442,7 +482,6 @@ input[name="tx-filter"] {
     transform: scale(1.03);
 }
 
-/* Cutout layer to turn the Pie into a Donut chart */
 .donut-chart::after {
     content: '';
     position: absolute;
@@ -513,7 +552,7 @@ input[name="tx-filter"] {
     color: var(--text-primary);
 }
 
-/* 4. Recent Transactions Filtering Controller */
+/* Recent Transactions Filtering Controller */
 .filter-controls {
     display: flex;
     gap: var(--spacing-xs);

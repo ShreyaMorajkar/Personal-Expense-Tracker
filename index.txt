@@ -136,6 +136,11 @@
                 <section class="add-expense-section">
                     <h2 class="section-title">Add Transaction</h2>
                     <form class="expense-form" onsubmit="return false;">
+                        <!-- Hidden Inputs for pure CSS selection toggle -->
+                        <input type="radio" id="type-expense" name="transaction-type" checked>
+                        <input type="radio" id="type-income" name="transaction-type">
+                        <input type="radio" id="type-savings" name="transaction-type">
+
                         <div class="form-group">
                             <label for="expense-title">Title / Description</label>
                             <input type="text" id="expense-title" placeholder="e.g., Zudio Shopping" required>
@@ -146,14 +151,22 @@
                                 <input type="number" id="expense-amount" placeholder="0.00" required>
                             </div>
                             <div class="form-group flex-1">
-                                <label for="expense-category">Category</label>
-                                <select id="expense-category" required>
-                                    <option value="Food">Food</option>
-                                    <option value="Transport">Transport</option>
-                                    <option value="Shopping">Shopping</option>
-                                    <option value="Entertainment">Entertainment</option>
-                                </select>
+                                <label>Type</label>
+                                <div class="segmented-control">
+                                    <label for="type-expense" class="type-label label-expense">Spend</label>
+                                    <label for="type-income" class="type-label label-income">Earn</label>
+                                    <label for="type-savings" class="type-label label-savings">Save</label>
+                                </div>
                             </div>
+                        </div>
+                        <div class="form-group" id="form-category-group">
+                            <label for="expense-category">Category</label>
+                            <select id="expense-category" required>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Entertainment">Entertainment</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn-submit">Add Transaction</button>
                     </form>
