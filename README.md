@@ -8,7 +8,7 @@ This project focuses on core layout concepts, demonstrating absolute mastery ove
 
 ## 📸 Dashboard Preview
 
-![Dashboard Screenshot](dashboard_screenshot.png)
+![Dashboard Screenshot](dashboard_screenshot.png?v=1)
 
 ---
 
